@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Choose a language to start learning!</h1>
+      <input type="text" id = "searchbar">
+      <div class="pad row card-group" id="suggestions">
+        <!--{% for l in languages %}-->
+          <div class="col-md-3 col-sm-4 py-3 py-md-4">
+            <div class="card">
+                <!-- https://flagpedia.net/index add these countries eventually-->
+                <!--https://colorhex.net/ffe135-->
+              <img class="card-img-top" src="el.png" alt="img unavailable">
+              <div class="card-body">
+                <h5 class="card-title">
+                <!-- {{languages[l]}} -->
+                </h5>
+                <p class="card-text">start learning this lanuage today</p>
+                <a href="#" id="bttn" class="col btn btn-primary">Start Learning</a>
+              </div>
+            </div>
+          </div>
+          <!--dwejiwh-->
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+      <script type="text/javascript">
+
+      $("#searchbar").keyup(function(){
+        var text = $(this).val();
+
+        $.ajax({
+        url: "/learn",
+        type: "get",
+        data: {jsdata: text},
+        success: function(response) {
+            $("#suggestions").html(response);
+        },
+        error: function(xhr) {
+            //Do Something to handle error
+        }
+        });
+      });
+      </script>
+
+  </body>
+</html>

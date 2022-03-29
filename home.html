@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 id="rat">Hello</h1>
+        <script type="text/javascript">
+            fetch("/getQ").then(res =>{
+                res.json().then(data => {
+                    document.getElementById('rat').innerHTML = data;//data[0];
+                });
+            });
+        </script>
+    </body>
+</html>
